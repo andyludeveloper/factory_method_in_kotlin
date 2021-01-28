@@ -1,10 +1,10 @@
-class CameraRecorderCreator{
-     private lateinit var cameraRecorder:ICameraRecorder
+class CameraRecorderCreator : AbstractCameraRecorderCreator() {
+    private lateinit var cameraRecorder: ICameraRecorder
 
-     fun record(){
-         cameraRecorder = createCameraRecorder()
-         cameraRecorder.start()
-     }
+    fun record() {
+        cameraRecorder = createCameraRecorder()
+        cameraRecorder.start()
+    }
 
-    private fun createCameraRecorder() = CameraRecorder()
+    override fun createCameraRecorder() = CameraRecorder()
 }
