@@ -1,4 +1,9 @@
 abstract class AbstractCameraRecorderCreator {
-    protected lateinit var cameraRecorder: ICameraRecorder
+    private lateinit var cameraRecorder: ICameraRecorder
     protected abstract fun createCameraRecorder(): ICameraRecorder
+
+    protected open fun record() {
+        cameraRecorder = createCameraRecorder()
+        cameraRecorder.start()
+    }
 }
